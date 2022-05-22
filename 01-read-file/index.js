@@ -1,18 +1,19 @@
-const fs = require('fs')
-const path = require('path')
-const process = require('node:process')
+/* eslint-disable indent */
+const fs = require('fs');
+const path = require('path');
+const process = require('process');
 
 const rs = fs.createReadStream(path.join(__dirname, 'text.txt'));
 
-let str = ''
+let str = '';
 rs.on('data', (chunk) => {
-    str += chunk
-})
+    str += chunk;
+});
 
 rs.on('end', () => {
-    process.stdout.write(str)
-})
+    process.stdout.write(str);
+});
 
 rs.on('error', (err) => {
-    process.stdout.write(err)
-})
+    process.stdout.write(err);
+});
