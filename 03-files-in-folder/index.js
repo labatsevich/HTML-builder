@@ -13,7 +13,7 @@ async function scanFolder(folder) {
             if (entry.isFile()) {
                 stat(path.join(folder, entry.name), (err, stats) => {
                     const { name, ext } = path.parse(entry.name);
-                    const size = stats.size / 1000;
+                    const size = stats.size / 1024;
 
                     stdout.write(`${name} - ${ext.slice(1)} - ${Math.ceil(size)}kb\n`);
                 });
